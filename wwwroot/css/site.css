@@ -48,3 +48,8 @@ textarea {
     display: none
   }
 }
+
+/* bouton sous les photos "dev", "admin" "techos"*/
+.marginbutton {
+    padding-top: 20px;
+}
