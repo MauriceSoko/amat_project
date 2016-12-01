@@ -15,14 +15,14 @@ namespace amat_project.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "A propos d' Amat Rh Consultants.";
 
             return View();
         }
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Nous contacter";
 
             return View();
         }

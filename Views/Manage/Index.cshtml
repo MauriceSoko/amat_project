@@ -7,10 +7,10 @@
 <p class="text-success">@ViewData["StatusMessage"]</p>
 
 <div>
-    <h4>Change your account settings</h4>
+    <h>Modifiez les parametres de votre compte</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>Password:</dt>
+        <dt>PMot de passe :</dt>
         <dd>
             @if (Model.HasPassword)
             {
@@ -21,16 +21,16 @@
                 <a asp-controller="Manage" asp-action="SetPassword" class="btn-bracketed">Create</a>
             }
         </dd>
-        <dt>External Logins:</dt>
+        <dt>Autre identifiant :</dt>
         <dd>
 
             @Model.Logins.Count <a asp-controller="Manage" asp-action="ManageLogins" class="btn-bracketed">Manage</a>
         </dd>
-        <dt>Phone Number:</dt>
+        <dt>Numero de telephone :</dt>
         <dd>
             <p>
-                Phone Numbers can used as a second factor of verification in two-factor authentication.
-                See <a href="https://go.microsoft.com/fwlink/?LinkID=532713">this article</a>
+                Le numero de telephone peut etre utilise pour un niveau d'identification en 2 etapes, encore plus securise.
+                Lire <a href="https://go.microsoft.com/fwlink/?LinkID=532713">cet article</a>
                 for details on setting up this ASP.NET application to support two-factor authentication using SMS.
             </p>
             @*@(Model.PhoneNumber ?? "None")
@@ -48,7 +48,7 @@
                 }*@
         </dd>
 
-        <dt>Two-Factor Authentication:</dt>
+        <dt>La verification en 2 etapes :</dt>
         <dd>
             <p>
                 There are no two-factor authentication providers configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532713">this article</a>
