@@ -15,7 +15,7 @@ namespace amat_project.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "A propos d'sAmat Rh Consultants.";
+            ViewData["Message"] = "A propos d'Amat Rh Consultants.";
 
             return View();
         }
