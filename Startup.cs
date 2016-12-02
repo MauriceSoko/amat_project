@@ -65,6 +65,12 @@ namespace amat_project
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
                 app.UseBrowserLink();
+
+                using(var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+                {
+                    serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>().Database.Migrate();
+                    serviceScope.ServiceProvider.GetService<ApplicationDbContext>().EnsureSeedData();
+                }
             }
             else
             {
@@ -74,6 +80,9 @@ namespace amat_project
             app.UseStaticFiles();
 
             app.UseIdentity();
+
+            app.EnsureRolesCreated();
+            
 
             // Add external authentication middleware below. To configure them please see https://go.microsoft.com/fwlink/?LinkID=532715
 
