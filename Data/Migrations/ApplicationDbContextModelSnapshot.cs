@@ -64,6 +64,144 @@ namespace amat_project.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("amat_project.Models.Enseignant", b =>
+                {
+                    b.Property<string>("EnseignantId");
+
+                    b.Property<string>("ApplicationUserID");
+
+                    b.Property<string>("SessionId");
+
+                    b.HasKey("EnseignantId");
+
+                    b.HasIndex("ApplicationUserID");
+
+                    b.HasIndex("SessionId");
+
+                    b.ToTable("Enseignant");
+                });
+
+            modelBuilder.Entity("amat_project.Models.Etudiant", b =>
+                {
+                    b.Property<string>("EtudiantId");
+
+                    b.Property<string>("ApplicationUserID");
+
+                    b.Property<string>("SessionId");
+
+                    b.HasKey("EtudiantId");
+
+                    b.HasIndex("ApplicationUserID");
+
+                    b.HasIndex("SessionId");
+
+                    b.ToTable("Etudiant");
+                });
+
+            modelBuilder.Entity("amat_project.Models.Evaluation", b =>
+                {
+                    b.Property<string>("EvaluationId");
+
+                    b.Property<string>("EnseignantId");
+
+                    b.Property<string>("EtudiantId");
+
+                    b.Property<string>("ModuleId");
+
+                    b.Property<int>("Note");
+
+                    b.Property<string>("SessionId");
+
+                    b.HasKey("EvaluationId");
+
+                    b.HasIndex("EnseignantId");
+
+                    b.HasIndex("EtudiantId");
+
+                    b.HasIndex("ModuleId");
+
+                    b.HasIndex("SessionId");
+
+                    b.ToTable("Evaluation");
+                });
+
+            modelBuilder.Entity("amat_project.Models.Formation", b =>
+                {
+                    b.Property<string>("FormationId");
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("FormationId");
+
+                    b.ToTable("Formation");
+                });
+
+            modelBuilder.Entity("amat_project.Models.FormationModule", b =>
+                {
+                    b.Property<string>("ModuleId");
+
+                    b.Property<string>("FormationId");
+
+                    b.HasKey("ModuleId", "FormationId");
+
+                    b.HasIndex("FormationId");
+
+                    b.HasIndex("ModuleId");
+
+                    b.ToTable("FormationModule");
+                });
+
+            modelBuilder.Entity("amat_project.Models.Module", b =>
+                {
+                    b.Property<string>("ModuleId");
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("EnseignantId");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("ModuleId");
+
+                    b.HasIndex("EnseignantId");
+
+                    b.ToTable("Module");
+                });
+
+            modelBuilder.Entity("amat_project.Models.ModuleEnseignant", b =>
+                {
+                    b.Property<string>("EnseignantId");
+
+                    b.Property<string>("ModuleId");
+
+                    b.HasKey("EnseignantId", "ModuleId");
+
+                    b.HasIndex("EnseignantId");
+
+                    b.HasIndex("ModuleId");
+
+                    b.ToTable("ModuleEnseignant");
+                });
+
+            modelBuilder.Entity("amat_project.Models.Session", b =>
+                {
+                    b.Property<string>("SessionId");
+
+                    b.Property<DateTime>("DebutSession");
+
+                    b.Property<DateTime>("FinSession");
+
+                    b.Property<string>("FormationId");
+
+                    b.HasKey("SessionId");
+
+                    b.HasIndex("FormationId");
+
+                    b.ToTable("Session");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole", b =>
                 {
                     b.Property<string>("Id");
@@ -169,6 +307,87 @@ namespace amat_project.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("amat_project.Models.Enseignant", b =>
+                {
+                    b.HasOne("amat_project.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserID");
+
+                    b.HasOne("amat_project.Models.Session")
+                        .WithMany("Enseignants")
+                        .HasForeignKey("SessionId");
+                });
+
+            modelBuilder.Entity("amat_project.Models.Etudiant", b =>
+                {
+                    b.HasOne("amat_project.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserID");
+
+                    b.HasOne("amat_project.Models.Session")
+                        .WithMany("Etudiants")
+                        .HasForeignKey("SessionId");
+                });
+
+            modelBuilder.Entity("amat_project.Models.Evaluation", b =>
+                {
+                    b.HasOne("amat_project.Models.Enseignant", "Enseignant")
+                        .WithMany()
+                        .HasForeignKey("EnseignantId");
+
+                    b.HasOne("amat_project.Models.Etudiant", "Etudiant")
+                        .WithMany("Evaluations")
+                        .HasForeignKey("EtudiantId");
+
+                    b.HasOne("amat_project.Models.Module", "Module")
+                        .WithMany()
+                        .HasForeignKey("ModuleId");
+
+                    b.HasOne("amat_project.Models.Session", "Session")
+                        .WithMany()
+                        .HasForeignKey("SessionId");
+                });
+
+            modelBuilder.Entity("amat_project.Models.FormationModule", b =>
+                {
+                    b.HasOne("amat_project.Models.Formation", "Formation")
+                        .WithMany("FormationModules")
+                        .HasForeignKey("FormationId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("amat_project.Models.Module", "Module")
+                        .WithMany("FormationModules")
+                        .HasForeignKey("ModuleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("amat_project.Models.Module", b =>
+                {
+                    b.HasOne("amat_project.Models.Enseignant")
+                        .WithMany("Modules")
+                        .HasForeignKey("EnseignantId");
+                });
+
+            modelBuilder.Entity("amat_project.Models.ModuleEnseignant", b =>
+                {
+                    b.HasOne("amat_project.Models.Enseignant", "Enseignant")
+                        .WithMany("ModuleEnseignants")
+                        .HasForeignKey("EnseignantId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("amat_project.Models.Module", "Module")
+                        .WithMany("ModuleEnseignants")
+                        .HasForeignKey("ModuleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("amat_project.Models.Session", b =>
+                {
+                    b.HasOne("amat_project.Models.Formation", "Formation")
+                        .WithMany("Sessions")
+                        .HasForeignKey("FormationId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>
