@@ -14,7 +14,6 @@ using amat_project.Services;
 
 namespace amat_project.Controllers
 {
-    [Authorize]
     public class AccountController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;

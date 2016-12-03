@@ -3,6 +3,8 @@
 
 # Database migration files
 Data/Migrations/
+Data/Migrations/ApplicationDbContextModelSnapshot.cs
+
 
 # User-specific files
 *.suo
