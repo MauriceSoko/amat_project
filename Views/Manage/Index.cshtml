@@ -31,7 +31,7 @@
             <p>
                 Le numero de telephone peut etre utilise pour un niveau d'identification en 2 etapes, encore plus securise.
                 Lire <a href="https://go.microsoft.com/fwlink/?LinkID=532713">cet article</a>
-                for details on setting up this ASP.NET application to support two-factor authentication using SMS.
+                pour plus de details sur comment creer cette application ASP.NET application afin de pouvoir utiliser l'authentification en 2 etapes par SMS.
             </p>
             @*@(Model.PhoneNumber ?? "None")
                 @if (Model.PhoneNumber != null)
@@ -51,8 +51,8 @@
         <dt>La verification en 2 etapes :</dt>
         <dd>
             <p>
-                There are no two-factor authentication providers configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532713">this article</a>
-                for setting up this application to support two-factor authentication.
+                Aucun service d'authentification en 2 etapes n'a ete configure. Lire <a href="https://go.microsoft.com/fwlink/?LinkID=532713">cet article</a>
+                afin de pouvoir utiliser la verification en 2 etapes sur cette application.
             </p>
             @*@if (Model.TwoFactor)
                 {
