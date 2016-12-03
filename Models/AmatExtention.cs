@@ -12,6 +12,7 @@ namespace amat_project.Models
             {
                 if (!context.Module.Any())
                 {
+
                     context.Module.AddRange(
                         // module that compose Admin formation
                         new Module { ModuleId = "NFA0703", Name = "NFAO703", Description = "Administration poste Linux" },
@@ -42,14 +43,33 @@ namespace amat_project.Models
                 {
 
                     context.Formation.AddRange(
-                        new Formation { FormationId = "Admin", Name = "Admin", Description = "Roi des serveur"},
-                        new Formation { FormationId = "Developpeur", Name = "Developpeur", Description = "Génie des claviers"},
-                        new Formation { FormationId = "Technicien", Name = "Technicien Support", Description = "Agence Tous Risque"}
+                        new Formation { FormationId = "Admin", Name = "Admin", Description = "Roi des serveur" },
+                        new Formation { FormationId = "Developpeur", Name = "Developpeur", Description = "Génie des claviers" },
+                        new Formation { FormationId = "Technicien", Name = "Technicien Support", Description = "Agence Tous Risque" }
                     );
                     context.SaveChanges();
+
+                }
+
+                if (!context.FormationModule.Any())
+                {
+                    var adminLinux = context.FormationModule.Add(new FormationModule { ModuleId = "NFA0703", FormationId = "Admin" });
+                    var adminResaux = context.FormationModule.Add(new FormationModule { ModuleId = "NFA074", FormationId = "Admin" });
+                    var adminSecurite = context.FormationModule.Add(new FormationModule { ModuleId = "NSY104", FormationId = "Admin" });
+                    var adminSys = context.FormationModule.Add(new FormationModule { ModuleId = "RSX112", FormationId = "Admin" });
+                    Formation adminFormation = context.Formation.First(p => p.FormationId == "Admin");
+                    adminFormation.FormationModules.Add(adminLinux.Entity);
+                    adminFormation.FormationModules.Add(adminSys.Entity);
+                    adminFormation.FormationModules.Add(adminSecurite.Entity);
+                    adminFormation.FormationModules.Add(adminResaux.Entity);
+
+                    context.SaveChanges();
+
+
 
                 }
             }
         }
     }
 }
+
