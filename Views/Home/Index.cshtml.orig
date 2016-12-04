@@ -14,21 +14,34 @@
             <img src="~/images/Banners/banner1.png" alt="Code" class="img-responsive" />
             <div class="carousel-caption" role="option">
                     
-                    <br><a class="btn btn-primary" asp-area= "" asp-controller="Account" asp-action="Register">
+<<<<<<< HEAD
+                    <a class="btn btn-success" asp-area= "" asp-controller="Account" asp-action="Login">
+                        Devenez Concepteur Developpeur ERP/PGI en 2 mois >> Inscrivez vous
+=======
+                    <br><a class="btn btn-primary" href="http://localhost:5000/Account/Register">
                     Rejoignez le centre de formation Amat RH Consultant <span class="badge">Insccrivez-vous</span>
+>>>>>>> caa9d23c736e3520ac0a0946b53eccace2c8de85
                     </a>
             
             </div>
         </div>
+<<<<<<< HEAD
+        <div class="item" asp-area= "" asp-controller="Account" asp-action="Login">
+            <img src="~/images/Banners/banner2.png" alt="Poo" class="img-responsive" />
+            <div class="carousel-caption" role="option">
               
                     
+                    <a class="btn btn-primary" asp-area= "" asp-controller="Account" asp-action="Login">
+                        Apprenez a programmer en C# et maitrisez la POO >> Candidatez
+=======
         <div class="item">
             <img src="~/images/Banners/Banner2.png" alt="Poo" class="img-responsive" />
             <div class="carousel-caption" role="option">
               
                     
-                    <br><a class="btn btn-success" asp-area= "" asp-controller="Account" asp-action="Login">
+                    <br><a class="btn btn-success" href="http://localhost:5000/Account/Login">
                         Apprenez a programmer en C# et maitrisez la POO <span class="badge">Candidatez</span>
+>>>>>>> caa9d23c736e3520ac0a0946b53eccace2c8de85
                     </a>
                 
             </div>
@@ -38,8 +51,13 @@
             <div class="carousel-caption" role="option">
                
                     
-                    <br><a class="btn btn-warning" asp-area= "" asp-controller="Account" asp-action="Login">
+<<<<<<< HEAD
+                    <a class="btn btn-warning" asp-area= "" asp-controller="Account" asp-action="Login">
+                        Soyez a l'affut des nouvelles technologies >> Candidatez
+=======
+                    <br><a class="btn btn-warning" href="http://localhost:5000/Account/Login">
                         Soyez a l'affut des nouvelles technologies <span class="badge">Candidatez</span>
+>>>>>>> caa9d23c736e3520ac0a0946b53eccace2c8de85
                     </a>
                 
             </div>
@@ -66,25 +84,29 @@
     </a>
 </div>
 <br>
+<br>
 
 <!--                                                BOX FORMATIONS                                         -->
 <div class="row">
     <div class="col-md-4 text-center">
         <button class="btn btn-primary" type="button">DEVELOPPEUR <span class="badge">Titre Certifie</span></button>
+
         <img src="images/Formations/Dev.jpg" class="img-responsive margin"  style="width:100%" alt="Image">
-        <p class="marginbutton"><a class="btn btn-primary" href="http://localhost:5000/Home/Formation">En savoir plus</a></p>
+        <p class="marginbutton"><a class="btn btn-primary" href="http://localhost:5000/HOme/About">En savoir plus</a></p>
     </div>
 
     <div class="col-md-4 text-center">
         <button class="btn btn-danger" type="button">ADMINISTRATEUR <span class="badge">Titre Certifie</span></button>
+
         <img src="images/Formations/AdminRez.jpg" class="img-responsive margin" style="width:100%" alt="Image">
-        <p class="marginbutton"><a class="btn btn-danger" href="http://localhost:5000/Home/Formation">En savoir plus</a></p>
+        <p class="marginbutton"><a class="btn btn-danger" href="http://localhost:5000/Home/About">En savoir plus</a></p>
     </div>
 
     <div class="col-md-4 text-center">
        <button class="btn btn-success" type="button">TECHNICIEN <span class="badge">Titre Certifie</span></button>
+
         <img src="images/Formations/Techos.jpg" class="img-responsive margin" style="width:100%" alt="Image">
-        <p class="marginbutton"><a class="btn btn-success" href="http://localhost:5000/Home/Formation">En savoir plus</a></p>
+        <p class="marginbutton"><a class="btn btn-success" href="http://localhost:5000/Home/About">En savoir plus</a></p>
     </div>
 </div>
 
