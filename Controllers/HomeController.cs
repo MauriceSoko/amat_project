@@ -13,7 +13,7 @@ namespace amat_project.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult Formation()
         {
             ViewData["Message"] = "Notre catalogue de formations.";
 

@@ -2,6 +2,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Builder;
+using System.Linq;
+using System;
 using amat_project.Data;
 
 namespace amat_project.Models
@@ -22,7 +24,29 @@ namespace amat_project.Models
                     }
 
                 }
+                
 
+                // add an a user with admin role
+            var adminUser = new ApplicationUser
+            { 
+                UserName = "admin@mail.com",
+                 Email = "admin@mail.com",
+                 EmailConfirmed = true,
+                 PhoneNumberConfirmed = true,
+                 SecurityStamp = Guid.NewGuid().ToString("D")
+
+            };
+                if(!context.Users.Any(u => u.UserName == adminUser.UserName))
+                {
+                    UserManager<ApplicationUser> umanager = app.ApplicationServices.GetService<UserManager<ApplicationUser>>();
+                    var passwordAdmin = new PasswordHasher<ApplicationUser>();
+                    var hashed = passwordAdmin.HashPassword(adminUser, "Password1_");
+                    adminUser.PasswordHash = hashed;
+
+                    var userStore = new UserStore<ApplicationUser>(context);
+                    var result = userStore.CreateAsync(adminUser);
+                    umanager.AddToRoleAsync(adminUser,Roles.Admin);
+                }
             }
         }
     }

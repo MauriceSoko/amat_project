@@ -54,6 +54,8 @@ namespace amat_project.Data
         }
 
         public DbSet<Formation> Formation {get; set;}
+
+        public DbSet<FormationModule> FormationModule {get; set;}
         public DbSet<Module> Module { get; set;}
         public DbSet<Session> Session {get; set;}
 
