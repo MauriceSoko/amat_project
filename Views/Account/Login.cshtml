@@ -76,7 +76,7 @@
                             <p>
                                 @foreach (var provider in loginProviders)
                                 {
-                                    <button type="submit" class="btn btn-default" name="provider" value="@provider.AuthenticationScheme" title="Se connecter avec @provider.DisplayName account">@provider.AuthenticationScheme</button>
+                                    <button type="submit" class="btn btn-danger" name="provider" value="@provider.AuthenticationScheme" title="Se connecter avec @provider.DisplayName account">@provider.AuthenticationScheme</button>
                                 }
                             </p>
                         </div>

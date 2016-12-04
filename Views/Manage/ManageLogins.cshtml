@@ -23,7 +23,7 @@
                                 <div>
                                     <input asp-for="@Model.CurrentLogins[index].LoginProvider" name="LoginProvider" type="hidden" />
                                     <input asp-for="@Model.CurrentLogins[index].ProviderKey" name="ProviderKey" type="hidden" />
-                                    <input type="submit" class="btn btn-default" value="Remove" title="Supprimer cette @Model.CurrentLogins[index].LoginProvider connexion de votre compte" />
+                                    <input type="submit" class="btn btn-danger value="Remove" title="Supprimer cette @Model.CurrentLogins[index].LoginProvider connexion de votre compte" />
                                 </div>
                             </form>
                         }
