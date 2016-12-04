@@ -14,14 +14,14 @@ namespace amat_project.Models.AccountViewModels
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "Le {0} doit contenir au moins {2} et au maximum {1} caratere.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Mot de passe")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "Confirmer mot de passe")]
+        [Compare("Mot de passe", ErrorMessage = "Les mots de passe entres ne correspondent pas.")]
         public string ConfirmPassword { get; set; }
     }
 }

@@ -16,10 +16,10 @@ namespace amat_project.Models.AccountViewModels
 
         public string ReturnUrl { get; set; }
 
-        [Display(Name = "Remember this browser?")]
+        [Display(Name = "Eregistrer ce navigateur ?")]
         public bool RememberBrowser { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "Se souvenir de moi ?")]
         public bool RememberMe { get; set; }
     }
 }

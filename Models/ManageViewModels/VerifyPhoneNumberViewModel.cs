@@ -13,7 +13,7 @@ namespace amat_project.Models.ManageViewModels
 
         [Required]
         [Phone]
-        [Display(Name = "Phone number")]
+        [Display(Name = "Numero de telephone")]
         public string PhoneNumber { get; set; }
     }
 }
