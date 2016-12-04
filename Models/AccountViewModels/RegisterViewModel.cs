@@ -21,7 +21,7 @@ namespace amat_project.Models.AccountViewModels
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirmer mot de passe")]
-        [Compare("Mot de passe", ErrorMessage = "Les mots de passe entres ne correspondent pas.")]
+        [Compare("NewPassword", ErrorMessage = "Les mots de passe entres ne correspondent pas.")]
         public string ConfirmPassword { get; set; }
     }
 }
